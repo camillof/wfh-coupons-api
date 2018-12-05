@@ -13,6 +13,7 @@ class Coupon < ApplicationRecord
   scope :by_month, -> (month_number) { where ("MONTH(requested_date) = ?"), month_number } 
   scope :by_status, -> (status) { where status: status }
   scope :by_user_id, -> (user_id) { where user_id: user_id }
+  scope :by_year, -> (year_number) { where ("YEAR(requested_date) = ?"), year_number } 
 
   def set_default_status
     self.status ||= Coupon.statuses[:pending] 

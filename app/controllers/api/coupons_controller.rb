@@ -29,7 +29,7 @@ class Api::CouponsController < ApplicationController
     private 
 
     def filtering_params
-        params.permit(:by_month, :by_status, :by_user_id)
+        params.permit(:by_month, :by_status, :by_user_id, :by_year)
     end
 
     def coupon_params
