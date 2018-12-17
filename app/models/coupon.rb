@@ -28,4 +28,10 @@ class Coupon < ApplicationRecord
     self.update!(status: Coupon.statuses[:rejected])
   end
 
+  def send_request_notification
+    SlackClient.send_notification("#{user.name} requested working from home on #{requested_date.to_s(:long)}")
+  end
+
+
+
 end

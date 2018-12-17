@@ -9,6 +9,7 @@ class Api::CouponsController < ApplicationController
     def create
         @coupon.save!
         json_response(@coupon)
+        @coupon.send_request_notification
     end
 
     def destroy
