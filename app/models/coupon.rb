@@ -32,4 +32,9 @@ class Coupon < ApplicationRecord
     UserNotifierMailer.alert_email(self.user).deliver
   end
 
+  def send_request_notification
+    SlackClient.send_notification("#{user.name} requested working from home on #{requested_date.to_s(:long)}")
+  end
+
+
 end

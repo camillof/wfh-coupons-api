@@ -59,3 +59,6 @@ gem 'cancancan', '~> 2.0'
 
 # Environment variables setted on application.yml
 gem "figaro"
+
+# Slack notifications trought API
+gem 'slack-ruby-client'
