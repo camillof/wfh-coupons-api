@@ -6,7 +6,7 @@ class Coupon < ApplicationRecord
 
   validates :requested_date, presence: true, uniqueness: { scope: :user, message: "for that user already exists" }
 
-  before_create :set_default_status
+  before_create :set_default_status, :send_request_email
 
   enum status: { pending: 0, approved: 1, rejected: 2 }
 
@@ -26,6 +26,10 @@ class Coupon < ApplicationRecord
 
   def reject!
     self.update!(status: Coupon.statuses[:rejected])
+  end
+
+  def send_request_email
+    UserNotifierMailer.alert_email(self.user).deliver
   end
 
 end

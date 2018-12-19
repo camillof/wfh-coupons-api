@@ -1,5 +1,5 @@
 RailsJwtAuth.setup do |config|
-  URL_BASE = ENV['frontend_url']
+  URL_BASE = "http://localhost:4200"
   # authentication model class name
   #config.model_name = 'User'
 
