@@ -21,7 +21,7 @@ class User < ApplicationRecord
     end
 
     def as_json(options={})
-        super(:only => [:name, :email, :id, :role,:active],:methods => [:ccoupons])
+        super(:only => [:name, :email, :id, :role,:active, :created_at],:methods => [:ccoupons])
     end
     # Overrides RailsJwtAuth payload
     def to_token_payload(request)
