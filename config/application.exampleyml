@@ -1,0 +1,8 @@
+database_username: "<<username>>"
+database_password: "<<password>>"
+database_host: "<<host database>>"
+database_name: "<<database name>>"
+database_port: "<<port database>>"
+mail_user: "<<user email for example kreitech.test@gmail.com>>"
+mail_password: "<<password email>>"
+frontend_url: "<<frontend url in prod is http://wfh.kreitech.io>>"

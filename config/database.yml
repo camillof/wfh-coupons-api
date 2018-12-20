@@ -10,11 +10,13 @@ default: &default
   pool: 5
   adapter: mysql2
   reconnect: false
-  port: 8889
-  username: root
-  password: root
-  host: 127.0.0.1
-  database: wfhdb
+
+
+  port: <%= ENV["database_port"] %>
+  username: <%= ENV["database_username"] %>
+  password: <%= ENV["database_password"] %>
+  host: <%= ENV["database_host"] %>
+  database: <%= ENV['database_name'] %>
 
 development:
   <<: *default
