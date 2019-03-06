@@ -24,7 +24,7 @@ class User < ApplicationRecord
         super(:only => [:name, :email, :id, :role,:active, :created_at],:methods => [:ccoupons])
     end
     # Overrides RailsJwtAuth payload
-    def to_token_payload(request)
+    def to_token_payload(request)        
         {
             auth_token: regenerate_auth_token,
             user: {
@@ -35,4 +35,6 @@ class User < ApplicationRecord
             }
         }
     end
+
+    
 end

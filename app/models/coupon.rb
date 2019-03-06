@@ -36,5 +36,10 @@ class Coupon < ApplicationRecord
     SlackClient.send_notification("#{user.name} requested working from home on #{requested_date.to_s(:long)}")
   end
 
+  def send_response_notification
+    UserNotifierMailer.alert_email_response(self.user,self.answer_test).deliver
+  end
+
+  
 
 end

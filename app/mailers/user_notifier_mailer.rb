@@ -6,4 +6,11 @@ class UserNotifierMailer < ApplicationMailer
     mail( :to => 'amalaquina@kreitech.io',
     :subject => 'You have a request from: '+ @user.email  )
   end
+
+  def alert_email_response(user, body)
+    @user = user
+    @body = body
+    mail( :to => user.email,
+    :subject => 'Answer your request  ')
+  end
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_21_204714) do
+ActiveRecord::Schema.define(version: 2019_02_24_204714) do
 
   create_table "coupons", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id"
@@ -20,6 +20,9 @@ ActiveRecord::Schema.define(version: 2018_11_21_204714) do
     t.integer "approved_by_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "answer_test"
+    t.integer "request_type", default: 0
+    t.date "date_to"
     t.index ["user_id"], name: "index_coupons_on_user_id"
   end
 
@@ -38,6 +41,7 @@ ActiveRecord::Schema.define(version: 2018_11_21_204714) do
     t.datetime "invitation_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "google_authorization"
   end
 
   add_foreign_key "coupons", "users"

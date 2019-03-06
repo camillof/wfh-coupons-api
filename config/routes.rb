@@ -10,7 +10,11 @@ Rails.application.routes.draw do
     resource :registration, controller: 'rails_jwt_auth/registrations', only: [:create, :update, :destroy]
   end
 
+  
+
   namespace :api do
+    get '/redirect', to: 'coupons#redirect', as: 'redirect'
+    get '/callback/:code', to: 'coupons#callback', as: 'callback'
     
     resources :users
     resources :coupons do
